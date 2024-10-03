@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NaveJugador : MonoBehaviour
@@ -46,9 +47,16 @@ public class NaveJugador : MonoBehaviour
            if(Input.GetKeyDown("space")){
         GameObject projectil = Instantiate(prefabProjectil);
         projectil.transform.position = transform.position;
-    }     
-        
+           }
+    }
+
+
+     private void OnTriggerEnter2D(Collider2D OBJtocat) {
+        if (OBJtocat.tag == "Numero"){
+            Destroy(gameObject);
+        }
+       }
      
 
     }
-}
+
